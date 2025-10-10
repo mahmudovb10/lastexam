@@ -9,6 +9,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { useGlobalContext } from "./hooks/useGlobalContext.jsx";
+import Recipe from "./components/Recipe.jsx";
 
 function App() {
   const { user, loading } = useGlobalContext();
@@ -23,6 +24,10 @@ function App() {
           <Home />
         </ProtectedRoutes>
       ),
+    },
+    {
+      path: "/recipe",
+      element: <Recipe />,
     },
     {
       path: "/login",

@@ -8,6 +8,14 @@ export const GlobalProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // 🔥 Receptlar uchun state
+  const [recipes, setRecipes] = useState([]);
+
+  // 🔥 Recipe qo‘shish funksiyasi
+  const addRecipe = (newRecipe) => {
+    setRecipes((prev) => [...prev, newRecipe]);
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -18,7 +26,7 @@ export const GlobalProvider = ({ children }) => {
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ user, loading }}>
+    <GlobalContext.Provider value={{ user, loading, recipes, addRecipe }}>
       {children}
     </GlobalContext.Provider>
   );

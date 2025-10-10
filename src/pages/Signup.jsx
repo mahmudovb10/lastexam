@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { auth } from "../firebase/config.js";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -28,7 +29,7 @@ function Signup() {
         photoURL: photoURL,
       });
 
-      navigate("/"); // ✅ Home sahifasiga qaytadi
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }
@@ -41,8 +42,8 @@ function Signup() {
         <form onSubmit={handleSignup} className="space-y-3">
           <input
             type="text"
-            placeholder="Username"
-            className="input input-bordered w-full outline-0"
+            placeholder="User name"
+            className="input input-bordered w-full outline-0 username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
@@ -50,16 +51,16 @@ function Signup() {
 
           <input
             type="text"
-            placeholder="Photo URL (ixtiyoriy)"
-            className="input input-bordered w-full"
+            placeholder="Photo URL"
+            className="input input-bordered w-full photourl"
             value={photoURL}
             onChange={(e) => setPhotoURL(e.target.value)}
           />
 
           <input
             type="email"
-            placeholder="Email"
-            className="input input-bordered w-full"
+            placeholder="example@gmail.com"
+            className="input input-bordered w-full email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -68,7 +69,7 @@ function Signup() {
           <input
             type="password"
             placeholder="Password"
-            className="input input-bordered w-full"
+            className="input input-bordered w-full password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -77,6 +78,7 @@ function Signup() {
           <button type="submit" className="btn btn-primary w-full">
             Sign Up
           </button>
+          <Link to={"/login"}>I have an account</Link>
         </form>
 
         {error && <p className="text-red-500 text-center mt-2">{error}</p>}

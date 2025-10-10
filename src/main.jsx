@@ -4,10 +4,15 @@ import "./index.css";
 import App from "./App.jsx";
 import { GlobalProvider } from "./hooks/useGlobalContext.jsx";
 
+import { Provider } from "react-redux";
+import { store } from "./store/store.js";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <GlobalProvider>
-      <App />
-    </GlobalProvider>
+    <Provider store={store}>
+      <GlobalProvider>
+        <App />
+      </GlobalProvider>
+    </Provider>
   </StrictMode>
 );
