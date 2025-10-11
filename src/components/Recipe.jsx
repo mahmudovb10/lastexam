@@ -21,10 +21,8 @@ function Recipe() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // 🔥 Context orqali Recipe qo‘shamiz
     addRecipe(formData);
 
-    // 🔥 Home sahifasiga qaytamiz
     navigate("/");
   };
 

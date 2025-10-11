@@ -27,9 +27,6 @@ body {
   bottom: 1.7rem;
 }
 
-.logoutBtn {
-}
-
 .hrHome {
   position: relative;
   top: 1.7rem;
@@ -46,6 +43,7 @@ body {
   right: 0;
   top: 3rem;
   z-index: 9;
+  border: none;
 }
 
 .addBtn {
@@ -180,4 +178,30 @@ body {
 .homehr {
   width: 35rem;
   color: rgb(80, 80, 80);
+}
+
+.mealImg {
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.cookTim {
+  width: 10rem;
+  background-color: #4b8df8;
+  border-radius: 7px;
+}
+
+.recMet {
+  background-color: red;
+  border-radius: 7px;
+}
+
+.recIng {
+  background-color: rgb(69, 159, 69);
+  border-radius: 7px;
+}
+
+.recTit {
+  background-color: #ccc;
+  border-radius: 7px;
 }

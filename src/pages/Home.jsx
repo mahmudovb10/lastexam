@@ -29,7 +29,7 @@ function Home() {
   return (
     <div>
       <div>
-        <h1 className="text-3xl font-bold mt-4">Kitchen App</h1>
+        <h1 className="text-3xl font-bold mt-4 ml-[1.5rem]">Kitchen App</h1>
         <hr className="hrHome" />
 
         {user ? (
@@ -66,13 +66,11 @@ function Home() {
         )}
       </div>
 
-      {/* ICON va OCHILUVCHI BLOK */}
       <div className="relative">
         <button className="addBtn">
           <IoIosAddCircleOutline size={35} onClick={openRecipe} />
         </button>
 
-        {/* ✅ Blok joyi o‘zgarishsiz, lekin layoutni siljitmaydi */}
         {open && (
           <div className="addOpen absolute bg-base-100 border rounded-lg shadow-md p-3 right-0 mt-2 z-50">
             <Link to={"/"}>
@@ -88,19 +86,27 @@ function Home() {
         )}
       </div>
 
-      {/* RECIPE LAR */}
       <div className="resipes mt-6">
-        <h3 className="font-semibold text-lg">Recipe</h3>
+        <h3 className="font-semibold text-lg ml-[1.5rem]">Recipe</h3>
 
         {recipes?.length === 0 ? (
-          <p>No recipes yet...</p>
+          <p className="ml-[1.5rem]">No recipes yet...</p>
         ) : (
           recipes?.map((recipe, index) => (
-            <div key={index} className="mt-3">
-              <p>Title: {recipe.title}</p>
-              <p>Cooking Time: {recipe.time}</p>
-              <p>Ingredients: {recipe.ingredients}</p>
-              <p>Method: {recipe.method}</p>
+            <div key={index} className="mt-3 ml-[1.5rem]">
+              <p>
+                🍴 Title: <span className="recTit">{recipe.title}</span>
+              </p>
+              <p>
+                🕒 Cooking Time: <span className="cookTim">{recipe.time}</span>
+              </p>
+              <p>
+                🧂 Ingredients:{" "}
+                <span className="recIng">{recipe.ingredients}</span>
+              </p>
+              <p>
+                💭 Method: <span className="recMet">{recipe.method}</span>
+              </p>
 
               {recipe.image && (
                 <img
@@ -108,7 +114,7 @@ function Home() {
                   alt={recipe.title}
                   width="200"
                   height="150"
-                  className="mt-2"
+                  className="mt-2 mealImg"
                 />
               )}
 
