@@ -9,9 +9,8 @@ export const GlobalProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [recipes, setRecipes] = useState([]);
 
-  // 🔹 Recept qo‘shish (har bir recept user bilan bog‘lanadi)
   const addRecipe = (newRecipe) => {
-    if (!user) return; // foydalanuvchi bo‘lmasa hech narsa qilinmaydi
+    if (!user) return;
 
     const recipeWithUser = {
       ...newRecipe,
@@ -22,7 +21,6 @@ export const GlobalProvider = ({ children }) => {
     setRecipes((prev) => [...prev, recipeWithUser]);
   };
 
-  // 🔹 Foydalanuvchini kuzatish (Firebase)
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -31,19 +29,17 @@ export const GlobalProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
-  // 🔹 Foydalanuvchi o‘zgarsa — unga tegishli receptlarni localStorage dan o‘qiymiz
   useEffect(() => {
     if (user) {
       const saved = localStorage.getItem(`recipes_${user.uid}`);
       if (saved) {
         setRecipes(JSON.parse(saved));
       } else {
-        setRecipes([]); // yangi foydalanuvchi uchun bo‘sh array
+        setRecipes([]);
       }
     }
   }, [user]);
 
-  // 🔹 Foydalanuvchining receptlarini localStorage ga yozish
   useEffect(() => {
     if (user) {
       localStorage.setItem(`recipes_${user.uid}`, JSON.stringify(recipes));
