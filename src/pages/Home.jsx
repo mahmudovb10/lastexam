@@ -8,7 +8,7 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 function Home() {
-  const { user, recipes } = useGlobalContext();
+  const { user, recipes, deleteRecipe } = useGlobalContext();
   const navigate = useNavigate();
   const [showProfile, setShowProfile] = useState(false);
   const [open, setOpen] = useState(false);
@@ -94,29 +94,23 @@ function Home() {
         ) : (
           recipes?.map((recipe, index) => (
             <div key={index} className="mt-3 ml-[1.5rem]">
-              <p>
-                🍴 Title: <span className="recTit">{recipe.title}</span>
-              </p>
-              <p>
-                🕒 Cooking Time: <span className="cookTim">{recipe.time}</span>
-              </p>
-              <p>
-                🧂 Ingredients:{" "}
-                <span className="recIng">{recipe.ingredients}</span>
-              </p>
-              <p>
-                💭 Method: <span className="recMet">{recipe.method}</span>
-              </p>
-
-              {recipe.image && (
-                <img
-                  src={recipe.image}
-                  alt={recipe.title}
-                  width="200"
-                  height="150"
-                  className="mt-2 mealImg"
-                />
-              )}
+              <div className="card bg-base-100 w-96 shadow-sm">
+                <figure>
+                  <img src={recipe.image} alt="Shoes" />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title">
+                    🍴{recipe.title}
+                    <div className="badge badge-secondary">🕒{recipe.time}</div>
+                  </h2>
+                  <p className="recIng">🧂{recipe.ingredients}</p>
+                  <p className="recMet">💭{recipe.method}</p>
+                  {/* <div className="card-actions justify-end">
+                    <div className="badge badge-outline">Fashion</div>
+                    <div className="badge badge-outline">Products</div>
+                  </div> */}
+                </div>
+              </div>
 
               <hr className="mt-2 homehr" />
             </div>

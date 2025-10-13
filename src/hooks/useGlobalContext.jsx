@@ -21,6 +21,13 @@ export const GlobalProvider = ({ children }) => {
     setRecipes((prev) => [...prev, recipeWithUser]);
   };
 
+  const deleteRecipe = (id) => {
+    if (!user) return;
+    const updated = recipes.filter((r) => r.id !== id);
+    setRecipes(updated);
+    localStorage.setItem(`recipes_${uid}`, JSON.stringify(updated));
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
