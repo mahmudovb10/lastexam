@@ -96,7 +96,7 @@ function Home() {
             <div key={index} className="mt-3 ml-[1.5rem]">
               <div className="card bg-base-100 w-96 shadow-sm">
                 <figure>
-                  <img src={recipe.image} alt="Shoes" />
+                  <img className="recipeImg" src={recipe.image} alt="Shoes" />
                 </figure>
                 <div className="card-body">
                   <h2 className="card-title">
@@ -105,10 +105,6 @@ function Home() {
                   </h2>
                   <p className="recIng">🧂{recipe.ingredients}</p>
                   <p className="recMet">💭{recipe.method}</p>
-                  {/* <div className="card-actions justify-end">
-                    <div className="badge badge-outline">Fashion</div>
-                    <div className="badge badge-outline">Products</div>
-                  </div> */}
                 </div>
               </div>
 

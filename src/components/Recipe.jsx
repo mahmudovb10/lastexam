@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Recipe() {
   const { addRecipe } = useGlobalContext();
@@ -24,6 +25,8 @@ function Recipe() {
     addRecipe(formData);
 
     navigate("/");
+
+    toast.success(" Add New  Recipe succesfly");
   };
 
   return (

@@ -208,3 +208,10 @@ body {
   background-color: #ccc;
   border-radius: 7px;
 }
+
+.recipeImg {
+  object-fit: cover;
+  border-radius: 8px;
+  width: 100%;
+  padding-left: 1rem;
+}
