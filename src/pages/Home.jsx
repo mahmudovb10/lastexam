@@ -105,6 +105,12 @@ function Home() {
                   </h2>
                   <p className="recIng">🧂{recipe.ingredients}</p>
                   <p className="recMet">💭{recipe.method}</p>
+                  <button
+                    className="btn btn-error btn-sm mt-2"
+                    onClick={() => deleteRecipe(recipe.id)}
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
 
